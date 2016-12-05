@@ -9,3 +9,5 @@ notifications:
     channels: "irc.freenode.org#vitasso"
     on_success: change
     on_failure: change
+script:
+  - ./test.sh

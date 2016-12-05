@@ -24,6 +24,7 @@ try:
     import simplejson as json
 except ImportError:
     import json
+import dpath 
 
 def api_request(host=None, path='', method='get', \
     data=None, params={}):
@@ -70,7 +71,7 @@ def load_config(filename=None):
 def load_settings():
     data = {}
     for cfg in get_config_files():
-        data = dict(data.items() + load_config(cfg).items())
+        dpath.util.merge(data,load_config(cfg))
     return data
 
 def read_event(data=None):
